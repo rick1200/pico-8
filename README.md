@@ -140,3 +140,28 @@ function _draw()
 end
 
 ```
+
+<br>
+
+### Using a sprite for the player
+
+```lua
+-- Sprite-Based Player
+
+function _init()
+  player = { x = 60, y = 60, sprite = 1, speed = 1 }
+end
+
+function _update()
+  if btn(0) then player.x = player.x - player.speed end
+  if btn(1) then player.x = player.x + player.speed end
+  if btn(2) then player.y = player.y - player.speed end
+  if btn(3) then player.y = player.y + player.speed end
+end
+
+function _draw()
+  cls(0)
+  spr(player.sprite, player.x, player.y)  -- draw the sprite at the player's position
+end
+
+```
