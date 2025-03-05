@@ -1,6 +1,29 @@
 # Pico-8
 <br>
 
+### Moving a player (circfill for player)
+```lua
+-- Basic Moving Player
+
+function _init()
+  player = { x = 64, y = 64, radius = 4, speed = 2 }
+end
+
+function _update()
+  if btn(0) then player.x = player.x - player.speed end  -- left arrow
+  if btn(1) then player.x = player.x + player.speed end  -- right arrow
+  if btn(2) then player.y = player.y - player.speed end  -- up arrow
+  if btn(3) then player.y = player.y + player.speed end  -- down arrow
+end
+
+function _draw()
+  cls(0)  -- clear screen with color 0 (black)
+  circfill(player.x, player.y, player.radius, 8)  -- draw player as a filled circle in color 8
+end
+
+```
+<br>
+
 ### How to cycle through frames for animation
 
 ```lua
