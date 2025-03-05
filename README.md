@@ -87,3 +87,32 @@ function _draw()
 end
 
 ```
+<br>
+
+### Playing a sound effect
+
+```lua
+-- Sound Effect Example
+
+function _init()
+  player = { x = 60, y = 60, w = 8, h = 8, speed = 2 }
+end
+
+function _update()
+  if btn(0) then player.x = player.x - player.speed end
+  if btn(1) then player.x = player.x + player.speed end
+  if btn(2) then player.y = player.y - player.speed end
+  if btn(3) then player.y = player.y + player.speed end
+  
+  -- Check if player touches the screen boundaries (0 to 128 for Pico-8)
+  if player.x < 0 or player.x > 120 or player.y < 0 or player.y > 120 then
+    sfx(0)  -- play sound effect with ID 0
+  end
+end
+
+function _draw()
+  cls(0)
+  rectfill(player.x, player.y, player.x + player.w, player.y + player.h, 10)
+end
+
+```
