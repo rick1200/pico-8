@@ -1,4 +1,36 @@
 
+Let's say we have 2 enemy sprites that we want to display on the screen. We can use a table for this. In Pico 8, a table is similar to an array or a list in other programming languages. We'll start by creating a table called `enemies`:
+<br>
+
+```lua
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ```lua
 function _init()
   enemies = {
@@ -36,18 +68,13 @@ end
 ```lua
 function update_enemies()
   for i, enemy in ipairs(enemies) do
-    --With a 10% chance, change direction randomly
-    if rnd(1) < 0.1 then
-      enemy.vx = flr(rnd(3)) - 1 --gives -1, 0, or 1
-      enemy.vy = flr(rnd(3)) - 1 --gives -1, 0, or 1
-    end
-  
     --Update enemy position based on velocity
     enemy.x += enemy.vx
     enemy.y += enemy.vy
 
     --Boundary check
     if enemy.x < 0 or enemy.x > 120 then enemy.vx = -enemy.vx end
+    if enemy.y < 0 or enemy.x > 120 then enemy.vy = -enemy.vy
   end
 end
 ```
