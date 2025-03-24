@@ -1,10 +1,38 @@
 
-Let's say we have 2 enemy sprites that we want to display on the screen. We can use a table for this. In Pico 8, a table is similar to an array or a list in other programming languages. We'll start by creating a table called `enemies`:
+Let's say we have 2 enemy sprites that we want to display on the screen. We can use a table for this. In Pico 8, a table is similar to an array or a list in other programming languages. We'll start by creating a table called `enemies` inside of the `_init()` function:
 <br>
 
 ```lua
+function _init()
+  enemies = {
 
+  }
+end
 ```
+<br>
+
+Inside of the enemies table, we're going to create 2 additional tables that will contain some properties for each enemy:
+* The `x` position of the enemy.
+* The `y` position of the enemy.
+* The velocity (speed) the enemy will travel horizontally across the screen (`x` speed).
+* The velocity (speed) the enemy will travel vertically across the screen (`y` speed).
+* The number of the sprite in Pico 8's sprite editor.
+<br>
+We can add more properties later but this is a good start. Enter the following code inside of the `enemies` table:
+<br>
+
+```lua
+function _init()
+  enemies = {
+    { x=10, y=20, dx=1, dy=0, spr=1 }, --sprite number 1
+    { x=30, y=40, dx=-1, dy=0, spr=2}  --sprite number 2
+  }
+end
+```
+<br>
+
+The `x` and `y` values tell us where the sprites will be placed on the screen when the game starts. 
+
 
 
 
