@@ -2,8 +2,8 @@
 ```lua
 function _init()
   enemies = {
-    { x=10, y=20, vx=1, vy=0, health=3 },
-    { x=30, y=40, vx=-1, vy=0, health=3 }
+    { x=10, y=20, vx=1, vy=0, health=3, color=8 },
+    { x=30, y=40, vx=-1, vy=0, health=3, color=10 }
   }
 end
 ```
@@ -25,7 +25,7 @@ function _draw()
   cls()
   --Draw enemies as rectangles
   for i, enemy in ipairs(enemies) do
-    rectfill(enemy.x, enemy.y, enemy.x+7, enemy.y+7, 10)
+    rectfill(enemy.x, enemy.y, enemy.x+7, enemy.y+7, enemy.color)
   end
 end
 ```
@@ -36,7 +36,13 @@ end
 ```lua
 function update_enemies()
   for i, enemy in ipairs(enemies) do
-    --Update enemy position
+    --With a 10% chance, change direction randomly
+    if rnd(1) < 0.1 then
+      enemy.vx = flr(rnd(3)) - 1 --gives -1, 0, or 1
+      enemy.vy = flr(rnd(3)) - 1 --gives -1, 0, or 1
+    end
+  
+    --Update enemy position based on velocity
     enemy.x += enemy.vx
     enemy.y += enemy.vy
 
