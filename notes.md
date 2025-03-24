@@ -31,7 +31,7 @@ end
 ```
 <br>
 
-The `x` and `y` values tell us where the sprites will be placed on the screen when the game starts. 
+The `x` and `y` values tell us where the sprites will be placed on the screen when the game starts. Sprite number 1 will travel horizontally toward the right side of the screen, so `dx` is set to a speed of `1`. Now we want sprite number 2 to move horizontally in the opposite direction so `dx` is set to `-1`.  
 
 
 
